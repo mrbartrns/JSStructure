@@ -1,0 +1,84 @@
+interface SinglyLinkedListNode<T> {
+  data: T;
+  next: SinglyLinkedListNode<T> | null;
+}
+
+interface SinglyLinkedListInterface<T> {
+  head: T | null;
+  tail: T | null;
+}
+
+class Node<T> implements SinglyLinkedListNode<T> {
+  data: T;
+  next: SinglyLinkedListNode<T> | null;
+  constructor(data: T) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class SinglyLinkedList<T>
+  implements SinglyLinkedListInterface<SinglyLinkedListNode<T>>
+{
+  head: SinglyLinkedListNode<T> | null;
+  tail: SinglyLinkedListNode<T> | null;
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  find(data: T) {
+    return this._find(data, this.head);
+  }
+
+  _find(
+    data: T,
+    node: SinglyLinkedListNode<T> | null
+  ): null | SinglyLinkedListNode<T> {
+    if (!node) return null;
+    if (data === node.data) return node;
+    return this._find(data, node.next);
+  }
+  append(value: T) {
+    const node = new Node(value);
+    // 가장 처음 값이라면 head도 바꿔줘야 한다.
+    if (!this.head) this.head = node;
+    // 가장 마지막 노드의 next에 node를 참조하도록 한다.
+    if (this.tail) this.tail.next = node;
+    // 현재 꼬리를 node로 바꾼다.
+    this.tail = node;
+  }
+  insert(node: SinglyLinkedListNode<T> | null, value: T) {
+    if (!node) return;
+    // node의 next를 현재 value의 노드로 바꾼다.
+    const newNode = new Node(value);
+    // 새 노드의 next를 기존 node의 next로 치환한다.
+    newNode.next = node.next;
+    // node.next를 새 노드로 참조하도록 한다.
+    node.next = newNode;
+  }
+  remove(value: T) {
+    let prevNode = this.head;
+    if (!prevNode) return null;
+    while (prevNode.next && prevNode.next.data !== value) {
+      prevNode = prevNode.next;
+    }
+    const node = prevNode.next;
+    if (node && node.next) {
+      prevNode.next = node.next || null;
+    }
+    return node;
+  }
+
+  display() {
+    let node = this.head;
+    const ret: T[] = [];
+    while (node) {
+      ret.push(node.data);
+      node = node.next;
+    }
+    console.log(ret);
+    return ret;
+  }
+}
+export { SinglyLinkedList };
