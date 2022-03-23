@@ -6,6 +6,7 @@ interface SinglyLinkedListNode<T> {
 interface SinglyLinkedListInterface<T> {
   head: T | null;
   tail: T | null;
+  size: number;
 }
 
 class Node<T> implements SinglyLinkedListNode<T> {
@@ -22,9 +23,11 @@ class SinglyLinkedList<T>
 {
   head: SinglyLinkedListNode<T> | null;
   tail: SinglyLinkedListNode<T> | null;
+  size: number;
   constructor() {
     this.head = null;
     this.tail = null;
+    this.size = 0;
   }
 
   find(data: T) {
@@ -47,6 +50,7 @@ class SinglyLinkedList<T>
     if (this.tail) this.tail.next = node;
     // 현재 꼬리를 node로 바꾼다.
     this.tail = node;
+    this.size++;
   }
   insert(node: SinglyLinkedListNode<T> | null, value: T) {
     if (!node) return;
@@ -56,6 +60,7 @@ class SinglyLinkedList<T>
     newNode.next = node.next;
     // node.next를 새 노드로 참조하도록 한다.
     node.next = newNode;
+    this.size++;
   }
   remove(value: T) {
     let prevNode = this.head;
@@ -66,6 +71,7 @@ class SinglyLinkedList<T>
     const node = prevNode.next;
     if (node && node.next) {
       prevNode.next = node.next || null;
+      this.size--;
     }
     return node;
   }
@@ -79,6 +85,10 @@ class SinglyLinkedList<T>
     }
     console.log(ret);
     return ret;
+  }
+
+  getSize() {
+    return this.size;
   }
 }
 export { SinglyLinkedList };
