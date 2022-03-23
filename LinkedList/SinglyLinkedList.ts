@@ -69,9 +69,14 @@ class SinglyLinkedList<T>
       prevNode = prevNode.next;
     }
     const node = prevNode.next;
+    // tail에 대한 처리가 필요하다
     if (node && node.next) {
-      prevNode.next = node.next || null;
+      prevNode.next = node.next;
       this.size--;
+    } else if (node) {
+      prevNode.next = null;
+      this.size--;
+      this.tail = prevNode;
     }
     return node;
   }
