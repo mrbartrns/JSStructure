@@ -1,25 +1,19 @@
-import { CircularLinkedList } from "./LinkedList/CircularLinkedList";
+import { Queue } from "./LinkedList/Queue";
+
 function test() {
-  const linkedList = new CircularLinkedList<number>();
-  // console.log(linkedList.tail);
-  linkedList.enqueue(1);
-  // console.log(linkedList.tail);
-  linkedList.enqueue(2);
-  // console.log(linkedList.tail);
-  linkedList.enqueue(3);
-  // console.log(linkedList.tail);
-  linkedList.enqueue(4);
-  // console.log(linkedList.tail);
-  linkedList.enqueue(5);
-  // console.log(linkedList.tail);
-  // console.log("size", linkedList.size);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
-  console.log(linkedList.dequeue()?.data || null);
+  const queue = new Queue();
+  queue.enqueue(1);
+  queue.enqueue(2);
+  queue.enqueue(3);
+  queue.enqueue(4);
+  console.log(queue.dequeue());
+  console.log(queue.dequeue());
+  console.log(queue.dequeue());
+  console.log(queue.dequeue());
+  console.log(queue.dequeue());
+  queue.enqueue(5);
+  console.log(queue.peek());
+  console.log(queue.getSize());
 }
 
 test();
