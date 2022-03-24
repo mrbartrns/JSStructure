@@ -49,11 +49,32 @@ class Trie implements TrieInterface {
     return true;
   }
 
+  find(value: string): string[] {
+    let currentNode = this.root;
+    for (const char of value) {
+      if (!currentNode.children.has(char)) return [];
+      let nextNode = currentNode.children.get(char);
+      if (!nextNode) return [];
+      currentNode = nextNode;
+    }
+    return this._find(currentNode);
+  }
+
   // 연관된 모든 검색어를 반환한다.
-  find(value: string) {
-    const queue = new Queue();
-    queue.enqueue(this.root);
-    while (!queue.isEmpty()) {}
+  _find(node: TrieNode) {
+    const ret: string[] = [];
+    const queue = new Queue<TrieNode>();
+    queue.enqueue(node);
+    ret.push(node.data);
+    while (!queue.isEmpty()) {
+      let node = queue.dequeue();
+      if (!node) return ret;
+      for (const [_, child] of node.children.entries()) {
+        ret.push(child.data);
+        queue.enqueue(child);
+      }
+    }
+    return ret;
   }
 }
 
