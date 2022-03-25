@@ -1,7 +1,6 @@
 import { BST } from "./projects/Tree";
 
 // BST가 잘 작동하는지 검증하는 테스트코드
-
 function test() {
   const dummies = [
     [7, 6, 9, 1, 5, 10, 3, 4],
