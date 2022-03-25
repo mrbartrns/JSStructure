@@ -49,6 +49,7 @@ class Trie implements TrieInterface {
     return true;
   }
 
+  // 연관 검색어를 반환하는 함수
   find(value: string): string[] {
     let currentNode = this.root;
     for (const char of value) {
@@ -60,7 +61,7 @@ class Trie implements TrieInterface {
     return this._find(currentNode);
   }
 
-  // 연관된 모든 검색어를 반환한다.
+  // 연관된 모든 검색어를 반환하는 내부 함수
   _find(node: TrieNode) {
     const ret: string[] = [];
     const queue = new Queue<TrieNode>();
