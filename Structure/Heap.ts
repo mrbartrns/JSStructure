@@ -36,9 +36,9 @@ class Heap implements HeapInterface {
     }
   }
 
-  heappop(): number {
+  heappop(): number | null {
     // return 할 값을 저장한다.
-    if (this.heap.length <= 1 || this.heap[1] === null) return -Infinity;
+    if (this.heap.length <= 1 || this.heap[1] === null) return null;
     const ret = this.heap[1];
     const last = this.heap.pop();
     if (typeof last === "number" && this.heap.length > 1) {
@@ -48,7 +48,6 @@ class Heap implements HeapInterface {
       /**
        * left와 right index가 현재 배열의 길이보다 작은지 확인한다.
        * current가 left와 right 둘 중 하나보다 작다면 반복문을 계속 돈다.
-       * 만약 left값이
        */
       while (currentIndex < this.heap.length) {
         let child = currentIndex * 2;

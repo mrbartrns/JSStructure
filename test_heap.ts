@@ -1,4 +1,4 @@
-import { Heap } from "./Structure/Heap";
+import { Heap } from "./structure/Heap";
 function test() {
   const heap = new Heap();
   heap.heappush(-45);
