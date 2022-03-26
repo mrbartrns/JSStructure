@@ -1,5 +1,5 @@
 // BST가 잘 작동하는지 검증하는 테스트코드
-import heapq from "./structure/Heap";
+import heapq from "./structures/Heap";
 function test() {
   const q: number[] = [];
   heapq.heappush(q, 10);
