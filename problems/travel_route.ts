@@ -37,122 +37,174 @@ function solution(tickets: Array<Array<string>>): Array<string> {
   console.log(answer[0]);
   return answer[0];
 }
+function isSame<T>(a: T, b: T): boolean {
+  console.log("a:", a);
+  console.log("b:", b);
+  return JSON.stringify(a) === JSON.stringify(b);
+}
 
 console.log(
-  solution([
-    ["ICN", "SFO"],
-    ["ICN", "ATL"],
-    ["SFO", "ATL"],
-    ["ATL", "ICN"],
-    ["ATL", "SFO"],
-  ]) == ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+  isSame(
+    solution([
+      ["ICN", "SFO"],
+      ["ICN", "ATL"],
+      ["SFO", "ATL"],
+      ["ATL", "ICN"],
+      ["ATL", "SFO"],
+    ]),
+    ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AOO"],
-    ["AOO", "BOO"],
-    ["BOO", "COO"],
-    ["COO", "DOO"],
-    ["DOO", "EOO"],
-    ["EOO", "DOO"],
-    ["DOO", "COO"],
-    ["COO", "BOO"],
-    ["BOO", "AOO"],
-  ]) == ["ICN", "AOO", "BOO", "COO", "DOO", "EOO", "DOO", "COO", "BOO", "AOO"]
+  isSame(
+    solution([
+      ["ICN", "AOO"],
+      ["AOO", "BOO"],
+      ["BOO", "COO"],
+      ["COO", "DOO"],
+      ["DOO", "EOO"],
+      ["EOO", "DOO"],
+      ["DOO", "COO"],
+      ["COO", "BOO"],
+      ["BOO", "AOO"],
+    ]),
+    ["ICN", "AOO", "BOO", "COO", "DOO", "EOO", "DOO", "COO", "BOO", "AOO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AOO"],
-    ["AOO", "BOO"],
-    ["AOO", "COO"],
-    ["COO", "AOO"],
-    ["BOO", "ZOO"],
-  ]) == ["ICN", "AOO", "COO", "AOO", "BOO", "ZOO"]
+  isSame(
+    solution([
+      ["ICN", "AOO"],
+      ["AOO", "BOO"],
+      ["AOO", "COO"],
+      ["COO", "AOO"],
+      ["BOO", "ZOO"],
+    ]),
+    ["ICN", "AOO", "COO", "AOO", "BOO", "ZOO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AOO"],
-    ["AOO", "BOO"],
-    ["AOO", "BOO"],
-    ["BOO", "AOO"],
-    ["BOO", "FOO"],
-    ["FOO", "COO"],
-    ["COO", "ZOO"],
-  ]) == ["ICN", "AOO", "BOO", "AOO", "BOO", "FOO", "COO", "ZOO"]
+  isSame(
+    solution([
+      ["ICN", "AOO"],
+      ["AOO", "BOO"],
+      ["AOO", "BOO"],
+      ["BOO", "AOO"],
+      ["BOO", "FOO"],
+      ["FOO", "COO"],
+      ["COO", "ZOO"],
+    ]),
+    ["ICN", "AOO", "BOO", "AOO", "BOO", "FOO", "COO", "ZOO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "BOO"],
-    ["ICN", "COO"],
-    ["COO", "DOO"],
-    ["DOO", "COO"],
-    ["BOO", "DOO"],
-    ["DOO", "BOO"],
-    ["BOO", "ICN"],
-    ["COO", "BOO"],
-  ]) == ["ICN", "BOO", "DOO", "BOO", "ICN", "COO", "DOO", "COO", "BOO"]
+  isSame(
+    solution([
+      ["ICN", "BOO"],
+      ["ICN", "COO"],
+      ["COO", "DOO"],
+      ["DOO", "COO"],
+      ["BOO", "DOO"],
+      ["DOO", "BOO"],
+      ["BOO", "ICN"],
+      ["COO", "BOO"],
+    ]),
+    ["ICN", "BOO", "DOO", "BOO", "ICN", "COO", "DOO", "COO", "BOO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AAA"],
-    ["ICN", "AAA"],
-    ["ICN", "AAA"],
-    ["AAA", "ICN"],
-    ["AAA", "ICN"],
-  ]) == ["ICN", "AAA", "ICN", "AAA", "ICN", "AAA"]
+  isSame(
+    solution([
+      ["ICN", "AAA"],
+      ["ICN", "AAA"],
+      ["ICN", "AAA"],
+      ["AAA", "ICN"],
+      ["AAA", "ICN"],
+    ]),
+    ["ICN", "AAA", "ICN", "AAA", "ICN", "AAA"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "BBB"],
-    ["ICN", "CCC"],
-    ["BBB", "CCC"],
-    ["CCC", "BBB"],
-    ["CCC", "ICN"],
-  ]) == ["ICN", "BBB", "CCC", "ICN", "CCC", "BBB"]
+  isSame(
+    solution([
+      ["ICN", "BBB"],
+      ["ICN", "CCC"],
+      ["BBB", "CCC"],
+      ["CCC", "BBB"],
+      ["CCC", "ICN"],
+    ]),
+    ["ICN", "BBB", "CCC", "ICN", "CCC", "BBB"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "JFK"],
-    ["HND", "IAD"],
-    ["JFK", "HND"],
-  ]) == ["ICN", "JFK", "HND", "IAD"]
+  isSame(
+    solution([
+      ["ICN", "JFK"],
+      ["HND", "IAD"],
+      ["JFK", "HND"],
+    ]),
+    ["ICN", "JFK", "HND", "IAD"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "SFO"],
-    ["ICN", "ATL"],
-    ["SFO", "ATL"],
-    ["ATL", "ICN"],
-    ["ATL", "SFO"],
-  ]) == ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+  isSame(
+    solution([
+      ["ICN", "SFO"],
+      ["ICN", "ATL"],
+      ["SFO", "ATL"],
+      ["ATL", "ICN"],
+      ["ATL", "SFO"],
+    ]),
+    ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AOO"],
-    ["ICN", "AOO"],
-    ["AOO", "ICN"],
-    ["AOO", "COO"],
-  ]) == ["ICN", "AOO", "ICN", "AOO", "COO"]
+  isSame(
+    solution([
+      ["ICN", "AOO"],
+      ["ICN", "AOO"],
+      ["AOO", "ICN"],
+      ["AOO", "COO"],
+    ]),
+    ["ICN", "AOO", "ICN", "AOO", "COO"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "AAA"],
-    ["ICN", "AAA"],
-    ["ICN", "AAA"],
-    ["AAA", "ICN"],
-    ["AAA", "ICN"],
-  ]) == ["ICN", "AAA", "ICN", "AAA", "ICN", "AAA"]
+  isSame(
+    solution([
+      ["ICN", "AAA"],
+      ["ICN", "AAA"],
+      ["ICN", "AAA"],
+      ["AAA", "ICN"],
+      ["AAA", "ICN"],
+    ]),
+    ["ICN", "AAA", "ICN", "AAA", "ICN", "AAA"]
+  )
 );
+
 console.log(
-  solution([
-    ["ICN", "BOO"],
-    ["ICN", "COO"],
-    ["COO", "DOO"],
-    ["DOO", "COO"],
-    ["BOO", "DOO"],
-    ["DOO", "BOO"],
-    ["BOO", "ICN"],
-    ["COO", "BOO"],
-  ]) == ["ICN", "BOO", "DOO", "BOO", "ICN", "COO", "DOO", "COO", "BOO"]
+  isSame(
+    solution([
+      ["ICN", "BOO"],
+      ["ICN", "COO"],
+      ["COO", "DOO"],
+      ["DOO", "COO"],
+      ["BOO", "DOO"],
+      ["DOO", "BOO"],
+      ["BOO", "ICN"],
+      ["COO", "BOO"],
+    ]),
+    ["ICN", "BOO", "DOO", "BOO", "ICN", "COO", "DOO", "COO", "BOO"]
+  )
 );
 export { solution };
