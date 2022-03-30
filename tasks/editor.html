@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Editor</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="toolbar">
+      <button data-command="bold">Bold</button>
+      <button data-command="italic">Italic</button>
+      <button data-command="underline">underline</button>
+      <button data-command="strikeThrough">strikeThrough</button>
+      <button data-command="justifyLeft">Left</button>
+      <button data-command="justifyCenter">Center</button>
+      <button data-command="justifyRight">Right</button>
+    </div>
+    <div contenteditable="true" class="editor"></div>
+  </body>
+  <script src="index.js"></script>
+</html>
