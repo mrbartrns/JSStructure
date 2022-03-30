@@ -1,14 +1,9 @@
 import { Trie } from "./projects/Trie";
 function test() {
   const trie = new Trie();
+  trie.insert("ca");
   trie.insert("cat");
-  trie.insert("dog");
-  trie.insert("cost");
-  console.log(trie.find("c"));
-  console.log(trie.find("ca"));
-  console.log(trie.find("cat"));
-  console.log(trie.find("d"));
-  console.log(trie.find("e"));
+  console.log(trie.has("cat"));
 }
 
 test();
